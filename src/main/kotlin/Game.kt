@@ -8,6 +8,16 @@
  * && || ! ：論理演算子（logical operators）
  * && ：論理積演算子（logical 'and' operator）左辺*右辺...どちらも真で真
  * || ：論理和演算子（logical 'or' operator）左辺+右辺...どちらかが真で真
+ *
+ * private fun hoge(fuga: String): String {
+ *  ...
+ *  return piyo
+ * }
+ *
+ * private...visibility modifier...option どの範囲から関数を使えるか？ default: public
+ *
+ * const -> ファイルレベルの変数（コンパイル時変数）...関数やクラスのローカルではないから
+ * プロジェクトのどこからでも参照できる変数になる
  * */
 
 fun main(args: Array<String>) {
