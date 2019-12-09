@@ -31,7 +31,11 @@ fun main(args: Array<String>) {
         in 15..74 -> " look pretty hurt"
         else -> " is in awful condition!"
     }
-    println(name + healthStatus)
+    print(name + healthStatus)
+}
+
+private fun print(text: String) {
+    println(text)
 }
 // Kotlinのちょっとしたコード試すのにKotlin REPLが便利
 // 1 in 1..3
