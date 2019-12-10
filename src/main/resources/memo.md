@@ -19,4 +19,17 @@
     ```
     テストの関数名にするとわかりやすい！
     
+- 名前付き関数（named function）
+    ```
+    fun hoge(arg: String): Hoge {}
+    ```
+- 無名関数（anonymous function）
+    ```
+    
+    ```
+    - 例えば、count()などは
+    ドット構文で呼び出す（dot syntax）
+    
+    
+    
     
