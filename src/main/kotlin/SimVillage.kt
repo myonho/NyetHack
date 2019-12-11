@@ -21,12 +21,14 @@ fun main(args: Array<String>) {
     無名関数にreturnは必要ない（むしろ許さない）
  */
 fun main(args: Array<String>) {
-
-    val greetingFunction: (String, Int) -> String = {playerName, numBuildings ->
+    runSimulation("Mayor") { playerName, numBuildings ->
         val currentYear = 2019
         "Adding $numBuildings houses," +
                 "Welcome to SimVillage, $playerName!! (copyright $currentYear)"
     }
+}
 
-    println(greetingFunction("Mayer", 2))
+fun runSimulation(playerName: String, greetingFunction: (String, Int) -> String) {
+    val numBuilding = (1..3).random()
+    println(greetingFunction(playerName, numBuilding))
 }
