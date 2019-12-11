@@ -23,13 +23,19 @@
     ```
     fun hoge(arg: String): Hoge {}
     ```
-- 無名関数（anonymous function）
+- 無名関数（anonymous function）：ラムダ（lambda）
+    - 例えば、count()などは標準ライブラリの関数
+    ドット構文で呼び出す（dot syntax）...メンバ関数（メソッド）、拡張関数で使える
+    - count()に無名関数：ラムダを渡せる
     ```
-    
+    "hogehogefugapiyo".count(it == 'o')
+    // 3
     ```
-    - 例えば、count()などは
-    ドット構文で呼び出す（dot syntax）
-    
+    - 無名関数は他の関数に渡しやすい
+        - sample: SimVillage.kt
+    - 無名関数は関数型（function type）
+    - 値として無名関数を格納でき、コードの中で関数を渡せる
+    - 標準ライブラリに無名関数は多く使われているので公式ドキュメントを読む
     
     
     
