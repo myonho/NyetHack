@@ -41,5 +41,55 @@
     "hogehogefugapiyo".count it == 'o'
     ```
     ラムダが最後の引数の時だけカッコを省略できる（参照：SimVillage.kt）
+- inline 関数
+    - ラムダはJVM上で1つのオブジェクトインスタンスとして表現される
+    - ラムダを利用できる全ての変数にメモリ割り当てを実行するのでコストがかかる
+    - ラムダを受け取る関数にinlineキーワードをつけると、ラムダのオブジェクトインスタンスで対象の関数を呼び出す代わりに呼び出しを行う場所自体に関数本体をコピペしてくれる
+    - ラムダを受け取るのが再帰関数の場合はinline化できない
     
+- 関数リファレンス（function reference）
+    - 名前付き関数を引数として渡せる形に変換してくれる
+    ```
+    ::hoge
+    ```
+    で関数hoge()のリファレンスを呼び出せる
+    
+- 高階関数（higher-order function）
+    - 他の関数を受け取るか、返す関数
+        - sample: SimVillage2
+    - 関数型プログラミング（functional programming）-> 広範囲で高階関数使っていくスタイル
+
+- ラムダはクロージャ
+    - 無名関数を作成したスコープで定義された変数へのリファレンスをもつ（SimVillage2）
+
+- ラムダ vs 無名内部クラス（anonymous inner class）
+    - Java8だとオブジェクト指向プログラミングとラムダ式がサポートされているが、関数を関数のパラメータor変数として定義する能力がないが、無名内部クラスがある
+    - 他のクラスの内部で定義される名前のないクラス（匿名クラス）
+    - 1つのメソッド定義を実装する
+    ```
+    Greeting greeting = (playerName, numBuildings) -> {
+        int currentYear = 2018;
+        System.out.println("Adding" + numBuildings + "house");
+        return "Welcome to SimVillage, " + playerName + "! (copyright " + currentYear + ")";
+    };
+    public interface Greeting {
+        String greet(String playerName, int numBuildings);
+    }
+    greeting.greet("Guyal", 6)
+    ```
+    Java8だとラムダが定義する関数を表現するのに、interfaceまたはclassの名前付き定義が必要
+    interface定義なしで単純に関数を渡すことはできない
+    - Javaのコード
+    ```
+    public interface Runnable {
+        public abstract void run();
+    }
+    ```
+    - Kotlinのコード
+    ```
+    fun runMyRunnable(runnable: () -> Unit) = { runnable() }
+    runMyRunnable{ println("hey now") }
+    ```
+    暗黙のreturn、itキーワード、クロージャと組み合わせるとかなりシンプルに記述できる
+    関数が[first-class citizen](https://en.wikipedia.org/wiki/First-class_citizen)に加えられている
     
